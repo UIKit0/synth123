@@ -1,27 +1,49 @@
-TARGET = synth123.out
+PROJECTNAME = synth123
+TARGET = $(PROJECTNAME).out
+DUMPTARGET = $(PROJECTNAME).s
+
+OPTLEVEL = 2
 CFILES = main.c mcp4802.c uart.c
+
 OBJECTS = $(CFILES:.c=.o)
-OPTLEVEL=0
-LDFLAGS = -mmcu=$(MCU) -Wl,-Map,$(TARGET).map
-VPATH = ..
+LST = $(filter %.lst, $(OBJECTS:.o=.lst))
+LDFLAGS = -mmcu=$(MCU) -Wl,-Map,$(TARGET).map -Wl,--gc-sections 
 MCU = attiny4313
 CC = avr-gcc
+OBJDUMP = avr-objdump
+SIZE = avr-size
 
-CFLAGS = -mmcu=$(MCU) -std=c99 -g \
-         -O$(OPTLEVEL) \
-         -Wall -Wextra -Wstrict-prototypes -Werror \
-         -pedantic $(INC)
+CFLAGS =	-mmcu=$(MCU) -std=c99 -g \
+         	-O$(OPTLEVEL) \
+         	-Wall -Wextra -Wstrict-prototypes -Werror \
+         	-pedantic $(INC) \
+			-fpeel-loops \
+			-fdata-sections -ffunction-sections \
+		 	-Wa,-ahlms=$(firstword $(filter %.lst, $(<:.c=.lst)))
+
+.PHONY: d s program gdbserver gdb clean
+
+all: $(TARGET)
 
 $(TARGET): $(OBJECTS)
 	$(CC) $(LDFLAGS) -o $(TARGET) $(OBJECTS)
 
 $(OBJECTS): $(DEPS)
 
-size: $(TARGET) $(OBJECTS)
-	avr-size $(TARGET) $(OBJECTS)
+d: $(DUMPTARGET) s
+
+#size: $(TARGET) $(OBJECTS)
+#	$(SIZE) $(TARGET) $(OBJECTS)
+
+$(DUMPTARGET): $(TARGET) 
+	$(OBJDUMP) -S  $< > $@
+
+s: $(TARGET)
+#	$(OBJDUMP) -h $(TARGET)
+	$(SIZE) $(OBJECTS) $(TARGET)
 
 program: $(TARGET)
-	sudo avrdude -p t4313 -c dragon_isp -P usb -U $(TARGET)
+	sudo avrdude -P usb -c dragon_isp -b 2000000 -p t4313 -U $(TARGET)
 
 gdbserver: $(TARGET)
 	sudo avarice -g --erase --program --file $(TARGET) localhost:1212
@@ -30,7 +52,7 @@ gdb: $(TARGET)
 	avr-gdb -x gdbinit
 
 clean:
-	rm -f $(OBJECTS) $(TARGET) $(TARGET).map
+	rm -f $(OBJECTS) $(TARGET) $(TARGET).map $(DUMPTARGET) $(LST)
 
 # Every non-.PHONY rule must update a file with the exact
 # name of its target.  Make sure every command script touches
