@@ -32,18 +32,14 @@ $(OBJECTS): $(DEPS)
 
 d: $(DUMPTARGET) s
 
-#size: $(TARGET) $(OBJECTS)
-#	$(SIZE) $(TARGET) $(OBJECTS)
-
 $(DUMPTARGET): $(TARGET) 
 	$(OBJDUMP) -S  $< > $@
 
 s: $(TARGET)
-#	$(OBJDUMP) -h $(TARGET)
 	$(SIZE) $(OBJECTS) $(TARGET)
 
 program: $(TARGET)
-	sudo avrdude -P usb -c dragon_isp -b 2000000 -p t4313 -U $(TARGET)
+	sudo avrdude -P usb -c dragon_isp -b 2000000 -p t4313 -U $(TARGET) -V
 
 gdbserver: $(TARGET)
 	sudo avarice -g --erase --program --file $(TARGET) localhost:1212

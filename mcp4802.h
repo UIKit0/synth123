@@ -19,5 +19,5 @@ void dac_init(void);
 DAC_A or DAC_B. */
 void dac_write(uint8_t data, uint8_t config);
 
-void dac_write_fast(uint8_t data, uint8_t config);
+void dac_raw(uint8_t data);
 
