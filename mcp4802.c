@@ -20,14 +20,7 @@ static void dac_deselect(void)
     CSn_PORT |= _BV(CSn_BIT);
 }
 
-void dac_init(void)
-{
-    /* Enable output by setting corresponding DDR bits. */
-    DDRB |= (_BV(USCK_BIT) | _BV(DO_BIT) | _BV(CSn_BIT));
-    dac_deselect();
-}
-
-static void dac_loop(uint8_t data) {
+static void spi_write(uint8_t data) {
     uint8_t i;
 
     USIDR = data;
@@ -37,19 +30,20 @@ static void dac_loop(uint8_t data) {
     }
 }
 
+void dac_init(void)
+{
+    /* Enable output by setting corresponding DDR bits. */
+    DDRB |= (_BV(USCK_BIT) | _BV(DO_BIT) | _BV(CSn_BIT));
+    dac_deselect();
+}
+
 void dac_write(uint8_t data, uint8_t config) {
     dac_select();
     /* MSB is sent first. */
     /* (/A)/B, --, /GA, /SHDN, D7, D6, D5, D4 */
-    dac_loop(config | data >> 4);
+    spi_write(config | data >> 4);
     /* D3, D2, D1, D0, x, x, x, x */
     dac_loop(data << 4);
-    dac_deselect();
-}
-
-void dac_raw(uint8_t data) {
-    dac_select();
-    dac_loop(data);
     dac_deselect();
 }
 

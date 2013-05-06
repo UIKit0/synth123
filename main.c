@@ -26,8 +26,7 @@ int main(void)
         int16_t data;
         data = uart_receive();
         if (-1 < data) {
-            //dac_write(data, DAC_A);
-            dac_raw(data);
+            dac_write(data, DAC_A);
         }
     }
     return 0;
