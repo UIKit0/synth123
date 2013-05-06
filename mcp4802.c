@@ -43,7 +43,7 @@ void dac_write(uint8_t data, uint8_t config) {
     /* (/A)/B, --, /GA, /SHDN, D7, D6, D5, D4 */
     spi_write(config | data >> 4);
     /* D3, D2, D1, D0, x, x, x, x */
-    dac_loop(data << 4);
+    spi_write(data << 4);
     dac_deselect();
 }
 

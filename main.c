@@ -4,6 +4,7 @@
 #include <avr/io.h>
 #include "mcp4802.h"
 #include "uart.h"
+#include "midi.h"
 
 int main(void)
 {
@@ -22,13 +23,16 @@ int main(void)
 
     dac_init();
     uart_init();
+    midi_init();
+
+    struct midi_msg *m;
     while(1) {
-        int16_t data;
-        data = uart_receive();
-        if (-1 < data) {
-            dac_write(data, DAC_A);
+        m = midi_msg_get();
+        if (NULL != m) {
+            if (midi_msg_is_note_on(m)) {
+                dac_write(m->data1, DAC_A);
+            }
         }
     }
-    return 0;
 }
 

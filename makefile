@@ -3,7 +3,7 @@ TARGET = $(PROJECTNAME).out
 DUMPTARGET = $(PROJECTNAME).s
 
 OPTLEVEL = 2
-CFILES = main.c mcp4802.c uart.c
+CFILES = main.c mcp4802.c uart.c midi.c
 
 OBJECTS = $(CFILES:.c=.o)
 LST = $(filter %.lst, $(OBJECTS:.o=.lst))
