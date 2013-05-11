@@ -1,0 +1,206 @@
+Cmp-Mod V01 Created by CvPcb (2013-05-01 BZR 4015)-stable date = Sat 11 May 2013 10:15:25 PM CEST
+
+BeginCmp
+TimeStamp = /5172A931;
+Reference = C1;
+ValeurCmp = 22p;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172A947;
+Reference = C2;
+ValeurCmp = 22p;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /51735B86;
+Reference = C3;
+ValeurCmp = 100u;
+IdModule  = C1V8;
+EndCmp
+
+BeginCmp
+TimeStamp = /517357E4;
+Reference = C4;
+ValeurCmp = 330n;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172FAE7;
+Reference = C5;
+ValeurCmp = 100n;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /516C8A76;
+Reference = C6;
+ValeurCmp = 100u;
+IdModule  = C1V8;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172B7F3;
+Reference = C7;
+ValeurCmp = 10u;
+IdModule  = C1V8;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172B63B;
+Reference = C8;
+ValeurCmp = 100n;
+IdModule  = C1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5175CA5A;
+Reference = C9;
+ValeurCmp = 10u;
+IdModule  = C1V8;
+EndCmp
+
+BeginCmp
+TimeStamp = /5175CA69;
+Reference = C10;
+ValeurCmp = 10u;
+IdModule  = C1V8;
+EndCmp
+
+BeginCmp
+TimeStamp = /516C846B;
+Reference = D1;
+ValeurCmp = 1N4001;
+IdModule  = DO-41;
+EndCmp
+
+BeginCmp
+TimeStamp = /517182A1;
+Reference = D2;
+ValeurCmp = 1N4148;
+IdModule  = DO-35;
+EndCmp
+
+BeginCmp
+TimeStamp = /517EF681;
+Reference = D3;
+ValeurCmp = ON;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /5186E5EE;
+Reference = D4;
+ValeurCmp = MIDI_RX;
+IdModule  = LED-3MM;
+EndCmp
+
+BeginCmp
+TimeStamp = /517EF657;
+Reference = IC1;
+ValeurCmp = ATTINY4313-P;
+IdModule  = DIP-20__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /5174921F;
+Reference = IC2;
+ValeurCmp = PC817;
+IdModule  = DIP-4__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /517EFF09;
+Reference = IC3;
+ValeurCmp = MCP4802-E/P;
+IdModule  = DIP-8__300_ELL;
+EndCmp
+
+BeginCmp
+TimeStamp = /517EE05B;
+Reference = K1;
+ValeurCmp = STEREO/MONO;
+IdModule  = PIN_ARRAY_3X1;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172C17B;
+Reference = P1;
+ValeurCmp = POWER;
+IdModule  = bornier2;
+EndCmp
+
+BeginCmp
+TimeStamp = /517EDBF4;
+Reference = P2;
+ValeurCmp = MIDI_IN;
+IdModule  = MIDI_CONNECTOR;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172DA59;
+Reference = P3;
+ValeurCmp = ISP;
+IdModule  = pin_array_3x2;
+EndCmp
+
+BeginCmp
+TimeStamp = /518160AE;
+Reference = P4;
+ValeurCmp = AUDIO_CONNECTOR;
+IdModule  = FC68131;
+EndCmp
+
+BeginCmp
+TimeStamp = /51735FC6;
+Reference = R1;
+ValeurCmp = 10K;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /517182E0;
+Reference = R2;
+ValeurCmp = 220;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /516C8A8F;
+Reference = R3;
+ValeurCmp = 220;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5171AA54;
+Reference = R4;
+ValeurCmp = 220;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5186E2CF;
+Reference = R5;
+ValeurCmp = 1K;
+IdModule  = R4;
+EndCmp
+
+BeginCmp
+TimeStamp = /5174A4E1;
+Reference = U1;
+ValeurCmp = 7805;
+IdModule  = LM78XXV;
+EndCmp
+
+BeginCmp
+TimeStamp = /5172A66F;
+Reference = X1;
+ValeurCmp = 20MHz;
+IdModule  = HC-49V;
+EndCmp
+
+EndListe
