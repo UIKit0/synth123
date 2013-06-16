@@ -1,4 +1,4 @@
-EESchema Schematic File Version 2  date Sat 11 May 2013 11:21:18 PM CEST
+EESchema Schematic File Version 2  date Sat 18 May 2013 11:54:08 AM CEST
 LIBS:attiny4313-p
 LIBS:power
 LIBS:device
@@ -39,7 +39,7 @@ $Descr A4 11693 8268
 encoding utf-8
 Sheet 1 1
 Title "Synth123"
-Date "11 may 2013"
+Date "18 may 2013"
 Rev "0.1"
 Comp "Martin Åberg"
 Comment1 ""
@@ -628,10 +628,6 @@ Wire Wire Line
 Wire Wire Line
 	5850 4550 4800 4550
 Wire Wire Line
-	9250 4650 9250 4450
-Wire Wire Line
-	9250 4450 8800 4450
-Wire Wire Line
 	9250 5050 9250 5150
 Wire Wire Line
 	7500 4950 8400 4950
@@ -642,8 +638,6 @@ Wire Wire Line
 	7800 1600 7800 2050
 Connection ~ 7800 1800
 Connection ~ 7400 2700
-Wire Wire Line
-	9250 4950 8800 4950
 Wire Wire Line
 	2600 7050 2600 7350
 Wire Wire Line
@@ -772,4 +766,16 @@ Wire Wire Line
 	8000 4350 8000 4950
 Connection ~ 8000 4950
 Connection ~ 4400 6450
+Wire Wire Line
+	8800 4450 9150 4450
+Wire Wire Line
+	9150 4450 9150 4950
+Wire Wire Line
+	9150 4950 9250 4950
+Wire Wire Line
+	8800 4950 9050 4950
+Wire Wire Line
+	9050 4950 9050 4650
+Wire Wire Line
+	9050 4650 9250 4650
 $EndSCHEMATC
